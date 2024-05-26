@@ -154,7 +154,7 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
         FrequencyPenalty := NewFrequencyPenalty;
     end;
 
-    procedure SetAzureSearchEndpoint(NewAzureSearchEndpoint: Text[250])
+    procedure SetAzureSearchEndpoint(NewAzureSearchEndpoint: Text)
     begin
         if not Initialized then
             InitializeDefaults();
@@ -162,7 +162,7 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
         AzureSearchEndpoint := NewAzureSearchEndpoint;
     end;
 
-    procedure SetAzureSearchKey(NewAzureSearchKey: Text[250])
+    procedure SetAzureSearchKey(NewAzureSearchKey: Text)
     begin
         if not Initialized then
             InitializeDefaults();
@@ -170,7 +170,7 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
         AzureSearchKey := NewAzureSearchKey;
     end;
 
-    procedure SetAzureSearchIndexName(NewAzureSearchIndexName: Text[250])
+    procedure SetAzureSearchIndexName(NewAzureSearchIndexName: Text)
     begin
         if not Initialized then
             InitializeDefaults();

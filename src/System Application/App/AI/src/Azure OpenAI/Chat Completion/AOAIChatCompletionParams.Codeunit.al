@@ -158,7 +158,7 @@ codeunit 7761 "AOAI Chat Completion Params"
     /// Sets the Azure Search Endpoint to be included in the chat.
     /// </summary>
     /// <param name="NewAzureSearchEndpoint">The new Azure Search Endpoint.</param>
-    procedure SetAzureSearchEndpoint(NewAzureSearchEndpoint: Text[250])
+    procedure SetAzureSearchEndpoint(NewAzureSearchEndpoint: Text)
     begin
         AOAIChatComplParamsImpl.SetAzureSearchEndpoint(NewAzureSearchEndpoint);
     end;
@@ -167,7 +167,7 @@ codeunit 7761 "AOAI Chat Completion Params"
     /// Sets the Azure Search Key to be included in the chat.
     /// </summary>
     /// <param name="NewAzureSearchKey">The new Azure Search Key.</param>
-    procedure SetAzureSearchKey(NewAzureSearchKey: Text[250])
+    procedure SetAzureSearchKey(NewAzureSearchKey: Text)
     begin
         AOAIChatComplParamsImpl.SetAzureSearchKey(NewAzureSearchKey);
     end;
@@ -176,7 +176,7 @@ codeunit 7761 "AOAI Chat Completion Params"
     /// Sets the Azure Search Indexname to be included in the chat.
     /// </summary>
     /// <param name="NewAzureSearchIndexName">The new Azure Search Indexname.</param>
-    procedure SetAzureSearchIndexName(NewAzureSearchIndexName: Text[250])
+    procedure SetAzureSearchIndexName(NewAzureSearchIndexName: Text)
     begin
         AOAIChatComplParamsImpl.SetAzureSearchIndexName(NewAzureSearchIndexName);
     end;
