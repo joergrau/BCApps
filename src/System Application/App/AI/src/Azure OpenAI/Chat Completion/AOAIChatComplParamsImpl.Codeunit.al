@@ -191,13 +191,9 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
         if IsJsonMode() then
             Payload.Add('response_format', GetJsonResponseFormat());
 
-        if GetAzureSearchEndpoint() <> '' then
-            Payload.Add('azureSearchEndpoint', GetAzureSearchEndpoint());
-        if GetAzureSearchKey() <> '' then
-            Payload.Add('azureSearchKey', GetAzureSearchKey());
-        if GetAzureSearchIndexName() <> '' then
-            Payload.Add('azureSearchIndexName', GetAzureSearchIndexName());
-
+        Payload.Add('azureSearchEndpoint', GetAzureSearchEndpoint());
+        Payload.Add('azureSearchKey', GetAzureSearchKey());
+        Payload.Add('azureSearchIndexName', GetAzureSearchIndexName());
     end;
 
     local procedure GetJsonResponseFormat() ResponseFormat: JsonObject
