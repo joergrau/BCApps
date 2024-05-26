@@ -11,6 +11,7 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
     InherentPermissions = X;
 
     var
+        AzureSearchEndpoint, AzureSearchKey, AzureSearchIndexName : Text;
         Initialized: Boolean;
         Temperature: Decimal;
         MaxTokens: Integer;
@@ -71,6 +72,30 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
         exit(FrequencyPenalty);
     end;
 
+    procedure GetAzureSearchEndpoint(): Text
+    begin
+        if not Initialized then
+            InitializeDefaults();
+
+        exit(AzureSearchEndpoint);
+    end;
+
+    procedure GetAzureSearchKey(): Text
+    begin
+        if not Initialized then
+            InitializeDefaults();
+
+        exit(AzureSearchKey);
+    end;
+
+    procedure GetAzureSearchIndexName(): Text
+    begin
+        if not Initialized then
+            InitializeDefaults();
+
+        exit(AzureSearchIndexName);
+    end;
+
     procedure SetTemperature(NewTemperature: Decimal)
     begin
         if not Initialized then
@@ -129,6 +154,30 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
         FrequencyPenalty := NewFrequencyPenalty;
     end;
 
+    procedure SetAzureSearchEndpoint(NewAzureSearchEndpoint: Text[250])
+    begin
+        if not Initialized then
+            InitializeDefaults();
+
+        AzureSearchEndpoint := NewAzureSearchEndpoint;
+    end;
+
+    procedure SetAzureSearchKey(NewAzureSearchKey: Text[250])
+    begin
+        if not Initialized then
+            InitializeDefaults();
+
+        AzureSearchKey := NewAzureSearchKey;
+    end;
+
+    procedure SetAzureSearchIndexName(NewAzureSearchIndexName: Text[250])
+    begin
+        if not Initialized then
+            InitializeDefaults();
+
+        AzureSearchIndexName := NewAzureSearchIndexName;
+    end;
+
     [NonDebuggable]
     procedure AddChatCompletionsParametersToPayload(var Payload: JsonObject)
     begin
@@ -141,6 +190,14 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
 
         if IsJsonMode() then
             Payload.Add('response_format', GetJsonResponseFormat());
+
+        if GetAzureSearchEndpoint() <> '' then
+            Payload.Add('azureSearchEndpoint', GetAzureSearchEndpoint());
+        if GetAzureSearchKey() <> '' then
+            Payload.Add('azureSearchKey', GetAzureSearchKey());
+        if GetAzureSearchIndexName() <> '' then
+            Payload.Add('azureSearchIndexName', GetAzureSearchIndexName());
+
     end;
 
     local procedure GetJsonResponseFormat() ResponseFormat: JsonObject
@@ -158,5 +215,8 @@ codeunit 7762 "AOAI Chat Compl Params Impl"
         SetMaxTokens(0);
         SetMaxHistory(10);
         SetJsonMode(false);
+        SetAzureSearchEndpoint('');
+        SetAzureSearchIndexName('');
+        SetAzureSearchKey('');
     end;
 }

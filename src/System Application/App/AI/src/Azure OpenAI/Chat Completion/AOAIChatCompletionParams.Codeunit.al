@@ -64,6 +64,33 @@ codeunit 7761 "AOAI Chat Completion Params"
     end;
 
     /// <summary>
+    /// Gets the Azure Search Endpoint.
+    /// </summary>
+    /// <returns>The Azure Search Endpoint being used.</returns>
+    procedure GetAzureSearchEndpoint(): Text
+    begin
+        exit(AOAIChatComplParamsImpl.GetAzureSearchEndpoint());
+    end;
+
+    /// <summary>
+    /// Gets the Azure Search Key.
+    /// </summary>
+    /// <returns>The Azure Search Key being used.</returns>
+    procedure GetAzureSearchKey(): Text
+    begin
+        exit(AOAIChatComplParamsImpl.GetAzureSearchKey());
+    end;
+
+    /// <summary>
+    /// Gets the Azure Search Indexname.
+    /// </summary>
+    /// <returns>The Azure Search Indexname being used.</returns>
+    procedure GetAzureSearchIndexName(): Text
+    begin
+        exit(AOAIChatComplParamsImpl.GetAzureSearchIndexName());
+    end;
+
+    /// <summary>
     /// Sets the sampling temperature to use, between 0 and 2. A higher temperature increases the likelihood that the next most probable token will not be selected. When requesting structured data, set the temperature to 0. For human sounding speech, 0.7 is a typical value
     /// </summary>
     /// <param name="NewTemperature">The new sampling temperature to use.</param>
@@ -125,6 +152,33 @@ codeunit 7761 "AOAI Chat Completion Params"
     procedure SetFrequencyPenalty(NewFrequencyPenalty: Decimal)
     begin
         AOAIChatComplParamsImpl.SetFrequencyPenalty(NewFrequencyPenalty);
+    end;
+
+    /// <summary>
+    /// Sets the Azure Search Endpoint to be included in the chat.
+    /// </summary>
+    /// <param name="NewAzureSearchEndpoint">The new Azure Search Endpoint.</param>
+    procedure SetAzureSearchEndpoint(NewAzureSearchEndpoint: Text[250])
+    begin
+        AOAIChatComplParamsImpl.SetAzureSearchEndpoint(NewAzureSearchEndpoint);
+    end;
+
+    /// <summary>
+    /// Sets the Azure Search Key to be included in the chat.
+    /// </summary>
+    /// <param name="NewAzureSearchKey">The new Azure Search Key.</param>
+    procedure SetAzureSearchKey(NewAzureSearchKey: Text[250])
+    begin
+        AOAIChatComplParamsImpl.SetAzureSearchKey(NewAzureSearchKey);
+    end;
+
+    /// <summary>
+    /// Sets the Azure Search Indexname to be included in the chat.
+    /// </summary>
+    /// <param name="NewAzureSearchIndexName">The new Azure Search Indexname.</param>
+    procedure SetAzureSearchIndexName(NewAzureSearchIndexName: Text[250])
+    begin
+        AOAIChatComplParamsImpl.SetAzureSearchIndexName(NewAzureSearchIndexName);
     end;
 
     /// <summary>
